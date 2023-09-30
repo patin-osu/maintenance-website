@@ -2,15 +2,26 @@
     padding: 0;
     margin: 0;
     font-family: 'Kanit', sans-serif;
-}
-body{
-    margin: 0;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+.container{
+    position: relative;
+    width: 100%;
     height: 100vh;
-    background-color: #000;
+}
+.parallax-background{
+    background-image: url('https://cdn.patin.dev/background.webp');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px) brightness(50%);
+    transform: translateZ(0);
+    transition: transform 0.1s ease;
 }
 .loading-screen{
     position: absolute;
@@ -21,41 +32,43 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
     z-index: 2;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 .loading-screen.hidden{
     opacity: 0;
     pointer-events: none;
 } 
-.loading-screen img{
-    animation: bounceUpDown 3s ease-in-out infinite;
-}
-.background{
+.container .footer{
+    text-align: center;
+    padding: 10px 0;
+    color: #fff;
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    background-image: url('https://cdn.patin.dev/maintenance.patin.dev_background.webp');
-    background-size: cover;
-    background-position: center center;
-    filter: blur(2px) brightness(70%);
-    z-index: -1;
-    transition: 0.1s ease;
+}
+.container .footer a{
+    color: white;
+    margin: 0;
+    text-decoration: none;
+}
+.container .footer p{
+    margin: 0;
 }
 .content{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    padding: 20px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
+    transform: translate(-50%, -50%);
+}
+.container .content h1{
+    color: #fff;
+}
+.container .content p{
+    color: white;
 }
 @media (max-width: 600px){
     *{
@@ -63,13 +76,5 @@ body{
     }
     .container .content h1{
       font-size: 25px;
-    }
-}
-@keyframes bounceUpDown{
-    0%, 100%{
-      transform: translateY(0);
-    }
-    50%{
-      transform: translateY(-20px);
     }
 }

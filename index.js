@@ -1,12 +1,18 @@
+feather.replace();
+
 window.addEventListener('load', function () {
-    const loadingScreen = document.querySelector('.loading-screen');
-    loadingScreen.classList.add('hidden');
+  const loadingScreen = document.querySelector('.loading-screen');
+  loadingScreen.classList.add('hidden');
 });
 
-const parallaxBg = document.querySelector('.background');
+const parallaxContainer = document.querySelector('.container');
 
-document.addEventListener('mousemove', (e) => {
-  const xAxis = (e.pageX - window.innerWidth / 2) / 25;
-  const yAxis = (e.pageY - window.innerHeight / 2) / 25;
-  parallaxBg.style.transform = `translate(${xAxis}px, ${yAxis}px) scale(1.1)`;
+parallaxContainer.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const { offsetWidth, offsetHeight } = parallaxContainer;
+    const x = (clientX / offsetWidth - 0.5) * 20;
+    const y = (clientY / offsetHeight - 0.5) * 20;
+
+    const parallaxBackground = document.querySelector('.parallax-background');
+    parallaxBackground.style.transform = `translate(${x}px, ${y}px) scale(1.1)`;
 });
