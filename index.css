@@ -10,7 +10,7 @@
     height: 100vh;
 }
 .parallax-background{
-    background-image: url('https://cdn.patin.dev/background.webp');
+    background-image: url('background.webp');
     background-size: cover;
     background-position: center;
     position: absolute;
