@@ -4,6 +4,9 @@
     font-family: 'Kanit', sans-serif;
     overflow: hidden;
 }
+body{
+    background: black;
+}
 .container{
     position: relative;
     width: 100%;
